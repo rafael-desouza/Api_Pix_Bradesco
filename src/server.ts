@@ -4,6 +4,7 @@ import path from 'path'
 import { Express } from 'express'
 import { createExpressServer, RoutingControllersOptions } from 'routing-controllers'
 import { loadDocumentation } from './api/common/openApi'
+import { bradescoRequest } from './api/common/authenticate'
 
 /**
  * Loading controllers.

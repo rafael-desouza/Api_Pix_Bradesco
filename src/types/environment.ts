@@ -6,5 +6,6 @@ export enum EnvironmentTypes {
 
 export enum EnvironmentDefault {
   PORT = '4000',
-  BRADESCO_URL = 'https://www.bradescopagamentos.com.br/'
+  BRADESCO_ENDPOINT = 'https://www.bradescopagamentos.com.br/',
+  BRADESCO_CERT = 'sisplan.pfx'
 }

@@ -18,4 +18,4 @@ const fileName = (() => {
 
 config({ path: resolve(__dirname, '..', '..', fileName) })
 
-export const { PORT = Default.PORT, BRADESCO_URL = Default.BRADESCO_URL } = process.env
+export const { PORT = Default.PORT, BRADESCO_ENDPOINT = Default.BRADESCO_ENDPOINT, BRADESCO_CERT = Default.BRADESCO_CERT } = process.env
