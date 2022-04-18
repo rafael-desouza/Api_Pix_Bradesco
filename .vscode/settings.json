@@ -1,0 +1,12 @@
+{
+  "cSpell.words": ["combinate", "datamodel", "dmmf", "Doee", "fsis", "fsisexample", "fsistest", "Metadatas", "MIDDLEWARES", "openapi"],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "search.exclude": {
+    "**/build": true,
+    "**/coverage": true,
+    "**/dist": true
+  }
+}

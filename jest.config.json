@@ -1,0 +1,20 @@
+{
+  "transform": {
+    "^.+\\.(j|t)sx?$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^~(.*)$": "<rootDir>/src/$1",
+    "^helpers(.*)$": "<rootDir>/tests/helpers/$1",
+    "^tests(.*)$": "<rootDir>/tests/$1"
+  },
+  "testMatch": ["<rootDir>/tests/**/*test.ts?(x)"],
+  "modulePathIgnorePatterns": ["<rootDir>/tests/helpers", "<rootDir>/dist"],
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/index.ts",
+    "!src/server.ts",
+    "!src/**/@types/*.ts",
+    "!src/config/**/*.ts",
+    "!src/common/**/*.ts"
+  ]
+}
