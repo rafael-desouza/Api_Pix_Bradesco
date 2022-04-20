@@ -33,7 +33,7 @@ export class GetCobrançasQuery {
 
   @IsDate()
   @IsNotEmpty()
-  endDate: Date
+  fim: Date
 }
 
 export class BradescoCobrancaRequest {

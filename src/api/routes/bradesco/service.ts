@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import fs from 'fs'
 import qs from 'qs'
 import path from 'path'
@@ -7,6 +7,8 @@ import https from 'https'
 import { BRADESCO_CERT, BRADESCO_ENDPOINT } from '~/config/env'
 import { BradescoRetorno, ClientInfo } from '~/classes/types'
 import { BradescoCobrancaRequest, GetCobrançasQuery } from './request'
+import { logger } from '~/common/logger'
+import { RequisitionFailedError, ValidationError } from '~/classes/error'
 
 export const getAgent = () => {
   const certPath = path.join(__dirname, '..', '..', '..', '..', 'certs', BRADESCO_CERT)
@@ -31,9 +33,12 @@ export const createCharge = async (token: string, payload: BradescoCobrancaReque
 
     return response.data
   } catch (error) {
-    const teste = error
-    console.log(teste)
-    throw Error
+    const errorResponse = error as AxiosError
+
+    if (errorResponse.response?.status === 401)
+      throw new ValidationError(errorResponse.response?.data.error_description, errorResponse.response?.status)
+
+    throw new RequisitionFailedError(errorResponse.response?.data.detail, errorResponse.response?.status)
   }
 }
 
@@ -55,11 +60,12 @@ export const authenticateTokenBradesco = async ({ clientID, clientSecret }: Clie
       })
     })
 
+    logger.info('Created token successfully')
     return response.data
   } catch (error) {
-    //! TODO: Create better error handling
-    console.log(error)
-    throw error
+    const errorResponse = error as AxiosError
+
+    throw new ValidationError(errorResponse.response?.data.error_description, errorResponse.response?.status)
   }
 }
 
@@ -74,10 +80,15 @@ export const findOne = async (token: string, identifier: string) => {
       httpsAgent: getAgent()
     })
 
+    logger.info(`Found one charge with identifier ${identifier}`)
     return response.data
   } catch (error) {
-    const teste = error
-    console.log(error)
+    const errorResponse = error as AxiosError
+
+    if (errorResponse.response?.status === 401)
+      throw new ValidationError(errorResponse.response?.data.error_description, errorResponse.response?.status)
+
+    throw new RequisitionFailedError(errorResponse.response?.data.detail, errorResponse.response?.status)
   }
 }
 
@@ -89,13 +100,18 @@ export const findMany = async (token: string, queryParams: GetCobrançasQuery) =
       headers: {
         Authorization: token
       },
-      params: { inicio: queryParams.inicio, fim: queryParams.endDate },
+      params: { inicio: queryParams.inicio, fim: queryParams.fim },
       httpsAgent: getAgent()
     })
 
+    logger.info('Found  charges')
     return response.data
   } catch (error) {
-    const teste = error
-    console.log(error)
+    const errorResponse = error as AxiosError
+
+    if (errorResponse.response?.status === 401)
+      throw new ValidationError(errorResponse.response?.data.error_description, errorResponse.response?.status)
+
+    throw new RequisitionFailedError(errorResponse.response?.data.detail, errorResponse.response?.status)
   }
 }

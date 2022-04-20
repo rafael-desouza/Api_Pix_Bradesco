@@ -1,5 +1,6 @@
 import { ExpressErrorMiddlewareInterface, Middleware } from 'routing-controllers'
 import { NextFunction, Request, Response } from 'express'
+import { logger } from '~/common/logger'
 
 @Middleware({ type: 'after' })
 export class ErrorHandler implements ExpressErrorMiddlewareInterface {
@@ -17,6 +18,8 @@ export class ErrorHandler implements ExpressErrorMiddlewareInterface {
       message: error.message,
       errors: error.errors
     }
+
+    logger.error(responseJSONError.message)
     response.json(responseJSONError)
 
     next()
