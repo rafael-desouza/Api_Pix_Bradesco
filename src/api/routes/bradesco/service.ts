@@ -11,6 +11,8 @@ import { logger } from '~/common/logger'
 import { RequisitionFailedError, ValidationError } from '~/classes/error'
 
 export const getAgent = () => {
+  if (!BRADESCO_CERT) throw new Error('Certificate not found')
+
   const certPath = path.join(__dirname, '..', '..', '..', '..', 'certs', BRADESCO_CERT)
   const cert = fs.readFileSync(certPath)
   const agent = new https.Agent({ pfx: cert, passphrase: '1234' })
@@ -44,7 +46,6 @@ export const createCharge = async (token: string, payload: BradescoCobrancaReque
 
 export const authenticateTokenBradesco = async ({ clientID, clientSecret }: ClientInfo) => {
   const credentials = Buffer.from(`${clientID}:${clientSecret}`).toString('base64')
-  console.log(credentials)
 
   try {
     const response = await axios({

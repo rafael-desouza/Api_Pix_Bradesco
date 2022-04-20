@@ -9,6 +9,11 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
+"@author.io/arg@1.3.22":
+  version "1.3.22"
+  resolved "https://registry.yarnpkg.com/@author.io/arg/-/arg-1.3.22.tgz#800acca32716ab6a43c7f485270de1c012b8be2a"
+  integrity sha512-P8Ov8N4LzVZDwvSjFu+eJVNbEqfIWcXMy7rARG1KNnII8+XSHXnR1JVJfUDgEnJNPPys1w0lV8kN4RPj9xhDHA==
+
 "@babel/cli@^7.14.8":
   version "7.17.6"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.17.6.tgz#169e5935f1795f0b62ded5a2accafeedfe5c5363"
@@ -1447,6 +1452,13 @@
   integrity sha512-/SNsDidUFCvqqcWDwxv2feww/yqhNeTRL5CVoL3jU4Goc4kKEL10T7Eye65ZqPNi4HRx8sAEX59pV1aEH7drNA==
   dependencies:
     "@types/express" "*"
+
+"@types/node-windows@^0.1.1":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@types/node-windows/-/node-windows-0.1.2.tgz#ddd6a492ec8fb22ce6032443aad17a339557cc28"
+  integrity sha512-Luni8arbv20PGunfPtqSHtmcm1if6t3sWuYj4aUGexalb3rUNw1a9M0GDU35Vrx012De6q37kP9IU+tYCYn/DA==
+  dependencies:
+    "@types/node" "*"
 
 "@types/node@*":
   version "17.0.24"
@@ -4574,6 +4586,14 @@ node-releases@^2.0.2:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.3.tgz#225ee7488e4a5e636da8da52854844f9d716ca96"
   integrity sha512-maHFz6OLqYxz+VQyCAtA3PTX4UP/53pa05fyDNc9CwjvJ0yEh6+xBwKsgCxMNhS8taUKBFYxfuiaD9U/55iFaw==
 
+node-windows@^1.0.0-beta.6:
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/node-windows/-/node-windows-1.0.0-beta.7.tgz#b786eee9db9dcaaf6c58d524c564bfb687beabfa"
+  integrity sha512-JnsGjdNmZ9oQZXXUoC7psAFQcyJaMa7cwrfNX+CbZNuPvP3fczVXT5uIO4n56v7jY2814XEtWulYabJUAgbcNA==
+  dependencies:
+    "@author.io/arg" "1.3.22"
+    xml "1.0.1"
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
@@ -6016,6 +6036,11 @@ xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
+
+xml@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
+  integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
 xmlchars@^2.2.0:
   version "2.2.0"

@@ -31,9 +31,10 @@ export class GetCobrançasQuery {
   @IsNotEmpty()
   inicio: Date
 
+  @IsOptional()
   @IsDate()
   @IsNotEmpty()
-  fim: Date
+  fim?: Date
 }
 
 export class BradescoCobrancaRequest {

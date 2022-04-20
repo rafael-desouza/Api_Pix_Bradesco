@@ -1,7 +1,7 @@
 import { config } from 'dotenv'
 import { resolve } from 'path'
 
-import { EnvironmentDefault as Default, EnvironmentTypes } from '~/classes/environment'
+import { EnvironmentTypes } from '~/classes/environment'
 
 export const isProductionEnvironment = () => process.env.NODE_ENV === EnvironmentTypes.PROD
 export const isDevelopmentEnvironment = () => process.env.NODE_ENV === EnvironmentTypes.DEV
@@ -18,4 +18,4 @@ const fileName = (() => {
 
 config({ path: resolve(__dirname, '..', '..', fileName) })
 
-export const { PORT = Default.PORT, BRADESCO_ENDPOINT = Default.BRADESCO_ENDPOINT, BRADESCO_CERT = Default.BRADESCO_CERT } = process.env
+export const { PORT, BRADESCO_ENDPOINT, BRADESCO_CERT } = process.env
