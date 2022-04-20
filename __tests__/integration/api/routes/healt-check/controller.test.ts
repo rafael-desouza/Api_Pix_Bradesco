@@ -1,6 +1,6 @@
 import request from 'supertest'
 
-import { startServer, closeServer, server } from 'tests/helpers/server'
+import { startServer, closeServer, server } from 'helpers/server'
 
 describe('/Health-check', () => {
   beforeAll(startServer)

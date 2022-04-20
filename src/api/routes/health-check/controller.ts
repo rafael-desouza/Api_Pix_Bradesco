@@ -8,7 +8,9 @@ import { OpenAPI } from 'routing-controllers-openapi'
 export class HealthCheckController {
   @Get()
   @OpenAPI({ summary: 'verify if the API is running' })
-  @HttpCode(204)
-  @OnUndefined(204)
-  get() {}
+  @HttpCode(200)
+  @OnUndefined(200)
+  get() {
+    return 'ta funcionando'
+  }
 }

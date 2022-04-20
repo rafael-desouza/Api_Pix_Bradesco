@@ -1,5 +1,6 @@
 {
-  "cSpell.words": ["combinate", "datamodel", "dmmf", "Doee", "fsis", "fsisexample", "fsistest", "Metadatas", "MIDDLEWARES", "openapi"],
+  "cSpell.words": ["combinate", "datamodel", "dmmf", "Doee", "Metadatas", "MIDDLEWARES", "openapi"],
+  "cSpell.language": "en,pt_BR",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

@@ -3,18 +3,17 @@ import 'reflect-metadata'
 import path from 'path'
 import { Express } from 'express'
 import { createExpressServer, RoutingControllersOptions } from 'routing-controllers'
-import { loadDocumentation } from './api/common/openApi'
-import { bradescoRequest } from './api/common/authenticate'
+import { loadDocumentation } from './api/helpers/openApi'
 
 /**
  * Loading controllers.
  */
-const controllersPath = path.resolve(__dirname, 'api', 'routes', '**', 'controller.ts')
+const controllersPath = path.resolve(__dirname, 'api', 'routes', '**', 'controller.*')
 
 /**
  * Loading middlewares.
  */
-const middlewaresPath = path.resolve(__dirname, 'api', 'middlewares', '**', '*.ts')
+const middlewaresPath = path.resolve(__dirname, 'api', 'middlewares', '**', '*.*')
 
 /**
  * Server options.

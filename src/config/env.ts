@@ -1,7 +1,7 @@
 import { config } from 'dotenv'
 import { resolve } from 'path'
 
-import { EnvironmentDefault as Default, EnvironmentTypes } from '~/types/environment'
+import { EnvironmentDefault as Default, EnvironmentTypes } from '~/classes/environment'
 
 export const isProductionEnvironment = () => process.env.NODE_ENV === EnvironmentTypes.PROD
 export const isDevelopmentEnvironment = () => process.env.NODE_ENV === EnvironmentTypes.DEV
